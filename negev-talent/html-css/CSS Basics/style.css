@@ -1,0 +1,55 @@
+/*exercise 1*/
+#h1 {
+    color: red;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#h2 {
+    color: green;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#h3 {
+    color: blue;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/*exercise 2*/
+
+#ex2 {
+    background-color: orange;
+    padding: 10px;
+}
+
+/*exercise 3*/
+
+a.ex3>img {
+    width: 200px;
+}
+
+/*exercise 4*/
+
+body.ex4 {
+    margin: 0;
+}
+
+body.ex4 #container {
+    background-color: gray;
+    display: inline-block;
+}
+
+.box {
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    display: inline-block;
+    border: 2px solid black;
+}
+
+.box#second {
+    background-color: orange;
+}
+
+body.ex4 button {
+    background: green;
+}
