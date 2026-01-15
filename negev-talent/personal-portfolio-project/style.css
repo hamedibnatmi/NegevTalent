@@ -1,0 +1,296 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --side-padding: 4rem;
+    --top-padding: 2rem;
+    --max-section-height: 259px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 1200px;
+    margin: auto;
+}
+
+/* Header */
+header {
+    position: sticky;
+    top: 0;
+}
+
+nav {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: var(--side-padding);
+    padding-right: var(--side-padding);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+nav ul li {
+    margin: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #AAB3BF;
+    font-weight: bold;
+}
+
+nav ul li:first-child a,
+nav ul li:last-child a {
+    font-weight: lighter;
+}
+
+nav .name {
+    color: #6892EC;
+    font-family: Inter;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 14.5px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+}
+
+/* body */
+
+section {
+    padding: var(--top-padding) var(--side-padding);
+    max-height: var(--max-section-height);
+}
+
+
+section:nth-child(odd) {
+    background-image: url(./img/blueBackGround.png);
+    background-size: cover;
+}
+
+section:nth-child(even) {
+    background-image: url(./img/whightBackGround.png);
+    background-size: cover;
+    background-position: bottom
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+}
+
+p {
+    width: 80%;
+    color: darkgray;
+}
+
+.title button {
+    background-color: #2562EE;
+    border: 1px solid #1154EF;
+    width: 100px;
+    border-radius: 4.5px;
+    margin-top: 3px;
+    margin-left: 4px;
+    color: #99B5F1;
+    padding: 10px;
+}
+
+.title .person-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.title .person-image {
+    display: flex;
+    justify-content: center;
+}
+
+.title .person-image img {
+    width: 40%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.about-me {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.about-info {
+    flex: 7;
+}
+
+.skills {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.skills ul {
+    list-style-type: none;
+}
+
+.skills ul li {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.skills ul li div {
+    padding-right: 50px;
+}
+
+.skills ul li div:nth-child(2) {
+    background-color: #ddd;
+}
+
+/* projects */
+
+.title {
+    display: flex;
+    justify-content: center;
+}
+
+.projects {
+    min-height: fit-content;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.card img {
+    max-width: 250px;
+    border-top-left-radius: 4%;
+    border-top-right-radius: 4%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4%;
+    width: 250px;
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.project-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.view-project {
+    background-color: orange;
+    border: 1px solid orange;
+    width: 100px;
+    border-radius: 4.5px;
+    margin-top: 3px;
+    margin-left: 4px;
+    color: rgb(243, 236, 225);
+    padding: 10px;
+}
+
+/* contact */
+
+.form {
+    flex: 2;
+    padding-left: 3%;
+    padding-right: 4%;
+}
+
+.social {
+    padding-right: 5%;
+}
+
+section.contact {
+    min-height: fit-content;
+}
+
+.form form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.contact-info {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.form form button {
+    background-color: #2562EE;
+    border: 1px solid #1154EF;
+    width: 150px;
+    border-radius: 4.5px;
+    margin-top: 3px;
+    margin-left: 4px;
+    color: #ffffff;
+    padding: 10px;
+}
+
+.form input,
+.form textarea {
+    border: 1px solid #ddd;
+    border-radius: 4.5px;
+    padding: 10px;
+}
+
+
+/* footer */
+footer {
+    background-color: #2562EE;
+    color: #ffffff;
+    text-align: center;
+}
+
+footer div {
+    background-image: url(./img/footer.png);
+    background-size: cover;
+    padding: 10px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.social-icons a {
+    background-color: #1154EF;
+    border-radius: 50%;
+    display: flex;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+}
+
+.social-icons a img {
+    width: 100%;
+    height: 100%;
+}
