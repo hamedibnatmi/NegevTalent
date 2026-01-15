@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <div class="name">
+                    <h1>Hamed Ibn Atmi</h1>
+                </div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="title" id="home">
+                <div class="person-info">
+                    <h1>Full-Stack Developer</h1>
+                    <p>I create beautiful and functional web experiences using modern
+                        technologies. Passionate about clean code and user-centered
+                        design.</p>
+                    <button>Get In Touch</button>
+                </div>
+                <div class="person-image">
+                    <!-- <label for="fileUpload" class="upload-text">professional photo</label>
+                    <input type="file" id="fileUpload"> -->
+                    <img src="./img/cartoon-character.avif" alt="person-image">
+
+                </div>
+            </section>
+            <section class="about-me" id="about">
+                <div class="about-info">
+                    <h1>About Me</h1>
+                    <p>I'm a passionate full-stack developer with a keen eye for design and a love for creating
+                        seamless user experiences. With expertise in HTML, CSS, and JavaScript, I bring ideas to
+                        life through clean, eficient code. When I'm not coding, you can find me exploring new
+                        technologies, reading design blogs, or enjoying a good cup of coffee while sketching out
+                        new project ideas.</p>
+                </div>
+                <div class="skills" id="skills">
+                    <ul>
+                        <li>Skills</li>
+                        <li>
+                            <div>JavaScript</div>
+                            <progress value="90" max="100"></progress>
+                        </li>
+                        <li>
+                            <div>React</div>
+                            <progress value="80" max="100"></progress>
+                        </li>
+                        <li>
+                            <div>Node.js</div>
+                            <progress value="70" max="100"></progress>
+                        </li>
+                        <li>
+                            <div>mongodb</div>
+                            <progress value="85" max="100"></progress>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="projects" id="projects">
+                <div class="title">
+                    <h1>My Projects</h1>
+                </div>
+                <div class="cards">
+                    <div class="card">
+                        <img src="./img/project.png">
+                        <div class="card-info">
+                            <h1 class="project-title">E-commerce Website</h1>
+                            <p>A responsive online store built with HTML,
+                                CSS, and JavaScript featuring product
+                                catalog and shopping cart.</p>
+                            <button class="view-project">View Project</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./img/project.png">
+                        <div class="card-info">
+                            <h1 class="project-title">Weather App</h1>
+                            <p>A clean weather application that displays
+                                current conditions and forecasts with a
+                                beautiful interface.</p>
+                            <button class="view-project">View Project</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./img/project.png">
+                        <div class="card-info">
+                            <h1 class="project-title">Task Manager</h1>
+                            <p>A productivity app for managing daily tasks
+                                with drag-and-drop functionality and local
+                                storage.</p>
+                            <button class="view-project">View Project</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="contact" id="contact">
+                <div class="title">
+                    <h1>Get in Touch</h1>
+                </div>
+                <div class="contact-info">
+                    <div class="form">
+                        <form action="">
+                            <label for="name">Name</label>
+                            <input type="text" id="name">
+                            <label for="email">Email</label>
+                            <input type="email" id="email">
+                            <label for="message">Message</label>
+                            <textarea name="" id="message" cols="30" rows="10"></textarea>
+                            <button>Send Message</button>
+                        </form>
+                    </div>
+                    <div class="social">
+                        <h3>Contact Information</h3>
+                        <h5><i class="fa-solid fa-envelope"></i> Email: john.doe@example.com</h5>
+                        <h5><i class="fa-solid fa-phone"></i> Phone: +123456789</h5>
+                        <h5><i class="fa-solid fa-location-dot"></i> Address: 123 Main St, City, Country</h5>
+                        <div class="social-icons">
+                            <!-- <a href="#linkedin.com"><img src="./img/lin.png" alt="linkedin"></a>
+                            <a href="#github.com"><img src="./img/githup.png" alt="github"></a>
+                            it was chalnging to find the svg icons -->
+                            <a href="#x.com"><img src="./img/xsvg.webp" alt="x"></a>
+                            <a href="#x.com"><img src="./img/xsvg.webp" alt="x"></a>
+                            <a href="#x.com"><img src="./img/xsvg.webp" alt="x"></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div>
+                <h5>© 2026 Hamed Ibn Atmi. All rights reserved.</h5>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
