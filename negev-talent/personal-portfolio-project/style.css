@@ -4,8 +4,10 @@
 
 :root {
     --side-padding: 4rem;
+    --mobile-side-padding: 1rem;
     --top-padding: 2rem;
     --max-section-height: 259px;
+
 }
 
 body {
@@ -299,11 +301,15 @@ footer div {
 
 /* media queries */
 
-@media (max-width: 768px) {
+@media (max-width: 760px) {
 
     /* header */
     .container {
         width: 100%;
+    }
+
+    section {
+        padding: var(--mobile-side-padding);
     }
 
     header ul {
@@ -377,8 +383,16 @@ footer div {
     /* projects */
 
     .projects {
-        padding-left: 70px;
-        padding-right: 70px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .projects .title {
+        text-align: center;
+    }
+
+    .projects button {
+        width: 100%;
     }
 
     .card {
@@ -421,60 +435,4 @@ footer div {
         width: 100%;
         margin-left: 0%;
     }
-
-
-    /* .form {
-        flex-direction: column;
-        justify-content: space-around;
-        gap: 20px;
-    }
-
-    .form form {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .form input,
-    .form textarea {
-        border: 1px solid #ddd;
-        border-radius: 4.5px;
-        padding: 10px;
-    } */
-
-
-
-    /* footer */
-
-    footer {
-        background-color: #2562EE;
-        color: #ffffff;
-        text-align: center;
-    }
-
-    footer div {
-        background-image: url(./img/footer.png);
-        background-size: cover;
-        padding: 10px;
-    }
-
-    .social-icons {
-        display: flex;
-        justify-content: space-around;
-    }
-
-    .social-icons a {
-        background-color: #1154EF;
-        border-radius: 50%;
-        display: flex;
-        width: 50px;
-        height: 50px;
-        padding: 10px;
-    }
-
-    .social-icons a img {
-        width: 100%;
-        height: 100%;
-    }
-
 }
