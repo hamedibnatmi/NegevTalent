@@ -15,6 +15,7 @@ body {
     padding: 0;
 }
 
+
 .container {
     width: 1200px;
     margin: auto;
@@ -298,12 +299,28 @@ footer div {
     height: 100%;
 }
 
+.hamburger {
+    display: none;
+}
+
+
+.mobile-menu {
+    display: none;
+}
+
+
 
 /* media queries */
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
 
-    /* header */
+    .mobile-menu ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    /* header  media queries*/
     .container {
         width: 100%;
     }
@@ -320,7 +337,7 @@ footer div {
         font-size: xx-small;
     }
 
-    /* body */
+    /* body media queries */
     .title {
         display: flex;
         flex-direction: column;
@@ -341,7 +358,7 @@ footer div {
         text-align: center;
     }
 
-    /* about me */
+    /* about me media queries*/
 
     .about-me {
         flex-direction: column;
@@ -380,7 +397,7 @@ footer div {
     }
 
 
-    /* projects */
+    /* projects media queries */
 
     .projects {
         padding-left: 20px;
@@ -409,7 +426,7 @@ footer div {
         gap: 20px;
     }
 
-    /* contact */
+    /* contact media queries*/
 
     .contact h1 {
         text-align: center;
@@ -435,4 +452,56 @@ footer div {
         width: 100%;
         margin-left: 0%;
     }
+
+
+
+    /* hamburger media queries*/
+    .hamburger {
+        display: block;
+        font-size: large;
+        color: darkgray;
+        background-color: transparent;
+        border: none;
+        font-weight: bolder;
+        cursor: pointer;
+    }
+
+
+    nav {
+        padding-left: var(--mobile-side-padding);
+        padding-right: var(--mobile-side-padding);
+    }
+
+    /* dropdown menu */
+    .mobile-menu {
+        position: fixed;
+        top: 25px;
+        right: 10px;
+        z-index: 1;
+        display: none;
+    }
+
+    .mobile-menu.open {
+        display: flex;
+    }
+
+    .mobile-menu ul {
+        list-style-type: none;
+        margin: 0;
+    }
+
+    .mobile-menu ul li a {
+        text-decoration: none;
+        color: darkgray;
+        padding: 10px;
+    }
+
+    .mobile-menu ul li:nth-child(odd) {
+        background-color: rgb(221, 218, 218);
+    }
+
+    .mobile-menu ul li:nth-child(even) {
+        background-color: rgb(133, 131, 131);
+    }
+
 }
