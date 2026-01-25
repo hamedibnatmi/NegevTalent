@@ -6,8 +6,8 @@ class AutoCompleteTrie {
 
     addWord(word) {
         let node = this.root;
-
-        for (let char of word) {
+        let lword = word.toLocaleLowerCase();
+        for (let char of lword) {
             if (!node.children[char]) {
                 node.value = char;
                 node.children[char] = new AutoCompleteTrieNode();
@@ -16,11 +16,12 @@ class AutoCompleteTrie {
             node = node.children[char];
         }
         node.endOfWord = true;
-
     }
+
+
 
 }
 
 
 let t = new AutoCompleteTrie();
-console.log("t", t.addWord("hamed"))
+console.log("t", t.addWord("Hamed"))
