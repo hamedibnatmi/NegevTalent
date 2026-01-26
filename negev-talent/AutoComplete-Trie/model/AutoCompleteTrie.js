@@ -1,5 +1,5 @@
 import AutoCompleteTrieNode from "./AutoCompleteTrieNode.js"
-class AutoCompleteTrie {
+export default class AutoCompleteTrie {
     constructor() {
         this.root = new AutoCompleteTrieNode();
     }
@@ -58,10 +58,3 @@ class AutoCompleteTrie {
 
 
 }
-
-
-let t = new AutoCompleteTrie();
-t.addWord("Hammed");
-t.addWord("Hammie");
-// console.log(t.predictWords("Ha"))
-console.log("Find: ", t.findWord("Hammie"))
