@@ -17,10 +17,14 @@ export default class AutoCompleteTrieController {
     findWord(word) {
         return this.trie.findWord(word);
     }
-}
 
-let t = new AutoCompleteTrieController();
-t.addWord("Hammed");
-t.addWord("Hammie");
-// console.log(t.predictWords("Ha"))
-console.log("Find: ", t.findWord("Hammie"))
+    help() {
+        console.log(`
+Commands:
+  add <word>      - Add word to dictionary
+  find <word>     - Check if word exists
+  complete <prefix> - Get completions
+  help           - Show this message
+  exit           - Quit program`)
+    }
+}
