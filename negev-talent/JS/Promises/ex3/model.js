@@ -48,7 +48,6 @@ export default class Model {
     updateInventory(items) {
         let promises = [];
         for (let item of items) {
-            let count = items.filter(i => i == item).length;
             let promise = new Promise((res, rej) => {
                 console.log("before update: ", this.inventory)
                 setTimeout(() => {
@@ -58,10 +57,10 @@ export default class Model {
                     if (this.inventory[item].stock <= 0) {
                         return rej(`${item} is out of stock.`)
                     }
-                    if (this.inventory[item].stock < count) {
+                    if (this.inventory[item].stock < 1) {
                         return rej(`${item} is not enough in stock.`)
                     }
-                    this.inventory[item].stock -= count;
+                    this.inventory[item].stock -= 1;
                     res(`${item} updated: ${this.inventory[item].stock}`)
                 }, 300);
             })
