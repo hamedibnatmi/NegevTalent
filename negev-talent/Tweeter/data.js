@@ -18,7 +18,4 @@ const posts = [
         ]
     }
 ]
-let data = posts
-let y = data[data.length - 1].comments[data[data.length - 1].comments.length - 1].id.slice(1);
-console.log(y);
 export default posts;
