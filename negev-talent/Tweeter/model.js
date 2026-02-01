@@ -2,11 +2,12 @@ import data from "./data.js";
 class Model {
     constructor() {
         this.posts = data;
-        this.postIdCounter = data.length;
+        this.postIdCounter = data.length + 1;
         this.commentIdCounter = parseInt(data[data.length - 1].comments[data[data.length - 1].comments.length - 1].id.slice(1)) + 1;
     }
 
     addPost(postText) {
+        if (!postText) return;
         this.posts.push({ id: "p" + this.postIdCounter++, text: postText, comments: [] });
     }
 
@@ -28,6 +29,7 @@ class Model {
     }
 
     addComment(postId, commentText) {
+        if (!commentText) return;
         this.posts = this.posts.map(post => {
             if (post.id === postId) {
                 post.comments.push({ id: "c" + this.commentIdCounter, text: commentText });
