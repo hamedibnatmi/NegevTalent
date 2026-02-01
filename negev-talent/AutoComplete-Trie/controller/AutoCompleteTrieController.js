@@ -1,13 +1,22 @@
 import AutoCompleteTrie from "../model/AutoCompleteTrie.js";
+import App from "../view/App.js";
 
 
 export default class AutoCompleteTrieController {
     constructor() {
         this.trie = new AutoCompleteTrie();
+        this.app = new App();
+        this.app.getAddWord(this.addWord.bind(this));
+        this.app.getSuggestions(this.predictWords.bind(this));
     }
 
     addWord(word) {
-        this.trie.addWord(word);
+        console.log("word added", word);
+        if (word) {
+            this.trie.addWord(word);
+            console.log(this.trie);
+            this.app.updateWordCount(this.trie.wordsCount)
+        }
     }
 
     predictWords(word) {
