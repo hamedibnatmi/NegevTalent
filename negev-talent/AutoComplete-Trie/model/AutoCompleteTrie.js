@@ -2,9 +2,17 @@ import AutoCompleteTrieNode from "./AutoCompleteTrieNode.js"
 export default class AutoCompleteTrie {
     constructor() {
         this.root = new AutoCompleteTrieNode();
+        this.wordsCount = 0;
     }
 
     addWord(word) {
+        if (this.findWord(word)) {
+            throw new Error("✕ Word already exists");
+        }
+        if (!word.trim()) {
+            throw new Error("✕ Cannot add empty word");
+        }
+        console.log("word added", word);
         let node = this.root;
         let lword = word.toLocaleLowerCase();
         for (let char of lword) {
@@ -15,15 +23,18 @@ export default class AutoCompleteTrie {
             node = node.children[char];
         }
         node.endOfWord = true;
-        console.log("Root: ", this.root)
+        this.wordsCount++;
     }
 
     predictWords(prefix) {
+        if (!prefix) {
+            return []
+        }
         let node = this.root;
         let lPrefix = prefix.toLocaleLowerCase();
 
         for (let char of lPrefix) {
-            if (char !== node.children[char].value) return []; // if a char is not match
+            if (!node.children[char]) return []; // if a char is not match
             node = node.children[char]; // if yes node procced
         }
         return this.collectWords(node, lPrefix)

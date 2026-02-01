@@ -3,8 +3,6 @@ import AutoCompleteTrieController from "./controller/AutoCompleteTrieController.
 
 
 const controller = new AutoCompleteTrieController();
-const app = new App(controller);
+// const app = new App(controller);
 
-
-app.start();
 
