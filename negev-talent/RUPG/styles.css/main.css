@@ -1,0 +1,11 @@
+@import "./user.css";
+@import "./users.css";
+@import "./qoute.css";
+@import "./pokemon.css";
+@import "./aboutMe.css";
+@import "./createGenrateBtn.css";
+
+:root {
+    height: 100%;
+    width: 100%;
+}
