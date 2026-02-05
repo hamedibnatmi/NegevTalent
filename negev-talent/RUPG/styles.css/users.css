@@ -1,0 +1,12 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    list-style: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #5f97d5;
+    border: 2px solid #000;
+    padding-bottom: 5%;
+}

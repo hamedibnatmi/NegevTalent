@@ -1,0 +1,17 @@
+.pokemon-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    min-width: fit-content;
+    height: fit-content;
+    min-height: fit-content;
+    padding: 10px;
+    margin: 10px;
+}
+
+.pokemon-box img {
+    width: 100px;
+    height: 100px;
+}
