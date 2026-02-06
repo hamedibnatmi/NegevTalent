@@ -1,0 +1,24 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+
+#weatherBox {
+  width: 300px;
+  height: 300px;
+}
+
+.hell-scape {
+  background-color: red;
+}
+
+.fair {
+  background-color: orange;
+}
+
+.cold {
+  background-color: aqua;
+}
