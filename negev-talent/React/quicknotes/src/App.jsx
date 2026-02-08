@@ -17,7 +17,7 @@ function App() {
 
   let addNote = (note, title = "") => {
     let date = formatter.format(new Date());
-    setNotesList([...notesList, { title, note, date }])
+    setNotesList([{ title, note, date }, ...notesList])
     console.log(notesList)
   }
 
