@@ -22,9 +22,6 @@ function App() {
   }
 
   let deletNote = (index) => {
-    // let newarr = [...notesList]
-    // newarr.splice(index, 1);
-    // setNotesList(newarr); this also works
     const result = confirm("Are you sure you want to delete your note?")
     if (result) {
       let newArr = notesList.filter((item, i) => i != index)

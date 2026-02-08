@@ -8,6 +8,7 @@
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(4, minmax(200px, 1fr));
+    justify-content: center;
 }
 
 .notes .note {
@@ -59,4 +60,22 @@
 
 .notes button:hover .tooltip {
     opacity: 1;
+}
+
+
+
+@media (max-width: 690px) {
+    .notes {
+        grid-template-columns: repeat(2, minmax(150px, 1fr));
+    }
+
+    .note font {
+        font-size: xx-small;
+        margin-right: 8px;
+    }
+
+    .notes .tooltip {
+        display: none;
+    }
+
 }
