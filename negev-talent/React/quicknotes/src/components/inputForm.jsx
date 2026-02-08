@@ -9,7 +9,8 @@ export default function InputForm({ addNote }) {
         if (inputValue || title) addNote(inputValue, title);
         setInputValue("");
         setTitle("");
-        textAreaRef.current.style.height = "250px";
+        const isMobile = window.matchMedia("(max-width: 768px)").matches
+        textAreaRef.current.style.height = isMobile ? "150px" : "250px";
     }
     const handleOnChangeTextArea = (e) => {
         e.target.style.height = "auto";
