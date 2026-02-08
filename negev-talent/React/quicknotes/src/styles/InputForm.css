@@ -1,0 +1,36 @@
+.formParent {
+    width: fit-content;
+    padding: 20px;
+    box-shadow: 2px 2px 10px 2px rgb(89, 119, 136);
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.formParent form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px
+}
+
+form textarea {
+    width: 40vw;
+    min-height: 250px;
+    border-radius: 5px;
+}
+
+
+.addBtn {
+    background-color: transparent;
+    width: 40vw;
+    height: 40px;
+    border-radius: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.formParent textarea {
+    resize: none;
+    overflow: hidden;
+}

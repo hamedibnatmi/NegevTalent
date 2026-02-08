@@ -1,0 +1,14 @@
+@import "./styles/InputForm.css";
+@import "./styles/notes.css";
+
+#root {
+  max-width: 1280px;
+  height: 1280px;
+  margin: 0;
+  /* padding: 2rem; */
+  text-align: center;
+}
+
+body {
+  margin: 0px;
+}
