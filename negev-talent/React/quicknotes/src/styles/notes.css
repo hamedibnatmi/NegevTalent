@@ -64,7 +64,7 @@
 
 
 
-@media (max-width: 690px) {
+@media (max-width: 768px) {
     .notes {
         grid-template-columns: repeat(2, minmax(150px, 1fr));
     }
