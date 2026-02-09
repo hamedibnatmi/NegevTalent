@@ -1,13 +1,18 @@
 @import "./styles/InputForm.css";
 @import "./styles/notes.css";
+@import "./styles/noteModal.css";
+@import "./styles/note.css";
 
 #root {
   max-width: 1280px;
   height: 1280px;
   margin: 0;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 body {
+
   margin: 0px;
 }
