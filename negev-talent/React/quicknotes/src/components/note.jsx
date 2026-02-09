@@ -6,12 +6,13 @@ export default function Note({ context, note, xbtn, openNote }) {
                     <font>{note.date}</font><br />
                     {note.newDate && <font>{note.newDate}</font>}
                 </div>
+                <button className="edit" onClick={(e) => { e.stopPropagation(); openNote?.({ id: note.id, context: "editNote" }) }}>Edit</button>
                 <button onClick={(e) => { e.stopPropagation(); xbtn(note.id) }}>x
                     <span className="tooltip">{context == "list" ? "Delete" : "Close"}</span>
                 </button>
             </div>
-            {note.title && <h4 className="title" onClick={(e) => { e.stopPropagation(); openNote?.({ id: note.id, context: "editNote" }) }}>{note.title}</h4>}
-            <p onClick={(e) => { e.stopPropagation(); openNote?.({ id: note.id, context: "editNote" }) }}>
+            {note.title && <h4 className="title">{note.title}</h4>}
+            <p>
                 {note.note}
             </p>
         </div>
