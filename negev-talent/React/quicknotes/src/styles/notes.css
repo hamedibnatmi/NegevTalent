@@ -7,60 +7,12 @@
     padding: 15px;
     display: grid;
     gap: 20px;
-    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, minmax(230px, 1fr));
     justify-content: center;
 }
 
-.notes .note {
-    background-color: transparent;
-    box-shadow: 2px 2px 8px 2px darkgrey;
-    padding: 10px;
-}
 
 
-.note font {
-    font-size: small;
-    margin-right: 8px;
-}
-
-.note p {
-    text-align: left;
-    word-wrap: break-word;
-    margin-top: 5px;
-}
-
-.title {
-    text-align: left;
-    word-wrap: break-word;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.notes button {
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-    font-weight: bold;
-    position: relative;
-
-}
-
-.notes .tooltip {
-    position: absolute;
-    bottom: 120%;
-    left: 100%;
-    padding: 3px;
-    border-radius: 3px;
-    background-color: rgb(203, 203, 206);
-    box-shadow: 1px 1px 5px 2px rgb(161, 161, 218);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-}
-
-.notes button:hover .tooltip {
-    opacity: 1;
-}
 
 
 
@@ -68,14 +20,4 @@
     .notes {
         grid-template-columns: repeat(2, minmax(150px, 1fr));
     }
-
-    .note font {
-        font-size: xx-small;
-        margin-right: 8px;
-    }
-
-    .notes .tooltip {
-        display: none;
-    }
-
 }

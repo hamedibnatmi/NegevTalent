@@ -1,0 +1,72 @@
+.note {
+    background-color: transparent;
+    box-shadow: 2px 2px 8px 2px darkgrey;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 10px;
+}
+
+.note font {
+    font-size: small;
+    margin-right: 8px;
+}
+
+.note p {
+    text-align: left;
+    word-wrap: break-word;
+    margin-top: 5px;
+}
+
+.title {
+    text-align: left;
+    word-wrap: break-word;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.note button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    margin-top: 4px;
+    position: relative;
+
+}
+
+.note .tooltip {
+    position: absolute;
+    bottom: 120%;
+    left: 100%;
+    padding: 3px;
+    border-radius: 3px;
+    background-color: rgb(203, 203, 206);
+    box-shadow: 1px 1px 5px 2px rgb(161, 161, 218);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.note button:hover .tooltip {
+    opacity: 1;
+}
+
+
+.note .date {
+    display: flex;
+    align-items: flex-start;
+
+}
+
+@media (max-width: 768px) {
+
+    .note font {
+        font-size: xx-small;
+        margin-right: 8px;
+    }
+
+    .note .tooltip {
+        display: none;
+    }
+
+}
