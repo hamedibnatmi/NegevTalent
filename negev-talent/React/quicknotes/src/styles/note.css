@@ -59,10 +59,13 @@
 }
 
 @media (max-width: 768px) {
+    .note button {
+        font-size: small;
+        margin-top: 7px;
+    }
 
     .note font {
         font-size: xx-small;
-        margin-right: 8px;
     }
 
     .note .tooltip {
