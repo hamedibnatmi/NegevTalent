@@ -1,6 +1,7 @@
 export default function Note({ context, note, xbtn, openNote }) {
     return (
-        <div className="note" onClick={(e) => { e.stopPropagation(); openNote?.({ id: note.id, context: "openNote" }) }}>
+        < div className="note" style={{ backgroundColor: note.color }
+        } onClick={(e) => { e.stopPropagation(); openNote?.({ id: note.id, context: "openNote" }) }}>
             <div className="date">
                 <div>
                     <font>{note.date}</font><br />
@@ -15,6 +16,6 @@ export default function Note({ context, note, xbtn, openNote }) {
             <p>
                 {note.note}
             </p>
-        </div>
+        </div >
     )
 }

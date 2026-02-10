@@ -8,6 +8,7 @@ function App() {
   const [notesList, setNotesList] = useState(getNotes())
   const [isNoteModalOpen, setIsNoteModalOpen] = useState(false)
   const [modalNote, setModalNote] = useState([])
+  const categories = [{ category: "Personal", color: "brown" }, { category: "Work", color: "orange" }, { category: "Other", color: "gray" }]
   const options = {
     month: "short",
     day: "2-digit",
@@ -39,19 +40,23 @@ function App() {
     }
   }, [notesList]);
 
-  let addNote = (note, title = "") => {
+  let addNote = (note, title = "", selectedCategory) => {
+    let color = categories.find(item => item.category == selectedCategory).color;
     let date = formatter.format(new Date());
-    setNotesList([{ id: crypto.randomUUID(), title, note, date }, ...notesList]);
+    setNotesList([{ id: crypto.randomUUID(), title, note, date, color }, ...notesList]);
+
   }
 
-  let updateNote = (id, title, text) => {
+  let updateNote = (id, title, note, selectedCategory) => {
+    let color = categories.find(item => item.category == selectedCategory).color
     let updatedNotesList = notesList.map((item) => {
       if (item.id == id) {
         let newDate = formatter.format(new Date());
-        return { ...item, note: text, title: title, newDate: newDate }
+        return { ...item, note, title, newDate, color }
       }
       return item;
     })
+
     setNotesList(updatedNotesList);
     closeOpenNoteModal();
   }
@@ -76,9 +81,9 @@ function App() {
 
   return (
     <>
-      <InputForm addNote={addNote} />
+      <InputForm addNote={addNote} categories={categories} />
       <Notes notes={notesList} deletNote={deletNote} openNote={openNote} />
-      {isNoteModalOpen && <NoteModal updateNote={updateNote} deletNote={deletNote} closeModal={closeOpenNoteModal} note={modalNote} />}
+      {isNoteModalOpen && <NoteModal updateNote={updateNote} deletNote={deletNote} closeModal={closeOpenNoteModal} note={modalNote} categories={categories} />}
     </>
   )
 }
