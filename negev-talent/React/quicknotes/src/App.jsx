@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import InputForm from './components/inputForm.jsx'
 import Notes from './components/notes.jsx'
 import NoteModal from './components/noteModal.jsx'
 
 function App() {
-  const [notesList, setNotesList] = useState([])
+  const [notesList, setNotesList] = useState(getNotes())
   const [isNoteModalOpen, setIsNoteModalOpen] = useState(false)
   const [modalNote, setModalNote] = useState([])
   const options = {
@@ -17,6 +17,27 @@ function App() {
     hour12: true
   };
   const formatter = new Intl.DateTimeFormat("en-US", options);
+
+  function getNotes() {
+    try {
+      const savedNotes = localStorage.getItem("notes");
+      if (savedNotes) {
+        return JSON.parse(savedNotes);
+      }
+    } catch (error) {
+      console.error("Error getting notes:", error);
+      return [];
+    }
+    return [];
+  }
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("notes", JSON.stringify(notesList));
+    } catch (error) {
+      console.error("Error saving notes:", error);
+    }
+  }, [notesList]);
 
   let addNote = (note, title = "") => {
     let date = formatter.format(new Date());
