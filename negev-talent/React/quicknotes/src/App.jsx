@@ -3,11 +3,14 @@ import './App.css'
 import InputForm from './components/inputForm.jsx'
 import Notes from './components/notes.jsx'
 import NoteModal from './components/noteModal.jsx'
+import NoteSearch from './components/noteSearch.jsx'
 
 function App() {
   const [notesList, setNotesList] = useState(getNotes())
   const [isNoteModalOpen, setIsNoteModalOpen] = useState(false)
   const [modalNote, setModalNote] = useState([])
+  const [searchedListNotes, setSearchedListNotes] = useState(notesList)
+  const [searchInput, setSearchInput] = useState("")
   const categories = [{ category: "Personal", color: "brown" }, { category: "Work", color: "orange" }, { category: "Other", color: "gray" }]
   const options = {
     month: "short",
@@ -40,14 +43,13 @@ function App() {
     }
   }, [notesList]);
 
-  let addNote = (note, title = "", selectedCategory) => {
+  const addNote = (note, title = "", selectedCategory) => {
     let color = categories.find(item => item.category == selectedCategory).color;
     let date = formatter.format(new Date());
     setNotesList([{ id: crypto.randomUUID(), title, note, date, color }, ...notesList]);
-
   }
 
-  let updateNote = (id, title, note, selectedCategory) => {
+  const updateNote = (id, title, note, selectedCategory) => {
     let color = categories.find(item => item.category == selectedCategory).color
     let updatedNotesList = notesList.map((item) => {
       if (item.id == id) {
@@ -61,7 +63,7 @@ function App() {
     closeOpenNoteModal();
   }
 
-  let deletNote = (id) => {
+  const deletNote = (id) => {
     const result = confirm("Are you sure you want to delete your note?")
     if (result) {
       let newArr = notesList.filter((item) => item.id != id)
@@ -70,19 +72,34 @@ function App() {
     }
   }
 
-  let closeOpenNoteModal = () => {
+  const closeOpenNoteModal = () => {
     setIsNoteModalOpen(!isNoteModalOpen);
   }
 
-  let openNote = (note) => {
+  const openNote = (note) => {
     setModalNote({ ...notesList.find(item => item.id == note.id), context: note.context });
     setIsNoteModalOpen(true);
   }
 
+
+  const search = (input) => {
+    setSearchInput(input);
+  }
+
+  useEffect(() => {
+    const list = searchInput.length && notesList.filter(item => (item.note.includes(searchInput) || item.title.includes(searchInput)));
+    if (searchInput) {
+      setSearchedListNotes(list)
+    } else {
+      setSearchedListNotes(notesList)
+    }
+  }, [searchInput, notesList])
+
   return (
     <>
       <InputForm addNote={addNote} categories={categories} />
-      <Notes notes={notesList} deletNote={deletNote} openNote={openNote} />
+      <NoteSearch search={search} categories={categories} />
+      <Notes notes={searchedListNotes.length ? searchedListNotes : notesList} searchedListNotes={searchedListNotes} deletNote={deletNote} openNote={openNote} />
       {isNoteModalOpen && <NoteModal updateNote={updateNote} deletNote={deletNote} closeModal={closeOpenNoteModal} note={modalNote} categories={categories} />}
     </>
   )
