@@ -10,7 +10,7 @@ function App() {
   const [isNoteModalOpen, setIsNoteModalOpen] = useState(false)
   const [modalNote, setModalNote] = useState([])
   const [searchedListNotes, setSearchedListNotes] = useState(notesList)
-  const [searchInput, setSearchInput] = useState("")
+  const [searchInput, setSearchInput] = useState({ text: "", categories: [] })
   const categories = [{ category: "Personal", color: "brown" }, { category: "Work", color: "orange" }, { category: "Other", color: "gray" }]
   const options = {
     month: "short",
@@ -44,17 +44,17 @@ function App() {
   }, [notesList]);
 
   const addNote = (note, title = "", selectedCategory) => {
-    let color = categories.find(item => item.category == selectedCategory).color;
+    const { category, color } = categories.find(item => item.category == selectedCategory);
     let date = formatter.format(new Date());
-    setNotesList([{ id: crypto.randomUUID(), title, note, date, color }, ...notesList]);
+    setNotesList([{ id: crypto.randomUUID(), title, note, date, category, color }, ...notesList]);
   }
 
   const updateNote = (id, title, note, selectedCategory) => {
-    let color = categories.find(item => item.category == selectedCategory).color
+    const { category, color } = categories.find(item => item.category == selectedCategory);
     let updatedNotesList = notesList.map((item) => {
       if (item.id == id) {
         let newDate = formatter.format(new Date());
-        return { ...item, note, title, newDate, color }
+        return { ...item, note, title, newDate, category, color }
       }
       return item;
     })
@@ -83,23 +83,33 @@ function App() {
 
 
   const search = (input) => {
-    setSearchInput(input);
+    if (input.text != null) {
+      setSearchInput({ ...searchInput, text: input.text });
+    } else {
+      if (input.checked) {
+        let rest = searchInput.categories.filter((item) => item != input.category)
+        setSearchInput({ ...searchInput, categories: [...rest, input.category] });
+      } else {
+        let rest = searchInput.categories.filter((item) => item != input.category)
+        setSearchInput({ ...searchInput, categories: rest });
+      }
+    }
   }
 
   useEffect(() => {
-    const list = searchInput.length && notesList.filter(item => (item.note.includes(searchInput) || item.title.includes(searchInput)));
-    if (searchInput) {
-      setSearchedListNotes(list)
-    } else {
-      setSearchedListNotes(notesList)
-    }
+    let listFilter;
+    listFilter = searchInput.text ? notesList.filter(item => (item.note.includes(searchInput.text) || item.title.includes(searchInput.text))) : notesList;
+    listFilter = searchInput.categories.length ? listFilter.filter(item => searchInput.categories.includes(item.category)) : listFilter;
+
+    setSearchedListNotes(listFilter)
+
   }, [searchInput, notesList])
 
   return (
     <>
       <InputForm addNote={addNote} categories={categories} />
       <NoteSearch search={search} categories={categories} />
-      <Notes notes={searchedListNotes.length ? searchedListNotes : notesList} searchedListNotes={searchedListNotes} deletNote={deletNote} openNote={openNote} />
+      <Notes searchedListNotes={searchedListNotes} deletNote={deletNote} openNote={openNote} />
       {isNoteModalOpen && <NoteModal updateNote={updateNote} deletNote={deletNote} closeModal={closeOpenNoteModal} note={modalNote} categories={categories} />}
     </>
   )
