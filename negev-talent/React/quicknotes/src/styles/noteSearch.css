@@ -1,4 +1,6 @@
 .search {
+    position: sticky;
+    top: 5px;
     display: flex;
     flex-direction: row;
     margin-top: 15px;
@@ -7,6 +9,7 @@
 }
 
 .noteSearch {
+    background-color: white;
     width: 300px;
     padding-left: 15px;
 }
@@ -17,4 +20,14 @@
     border: none;
     border-radius: 5px;
     height: 30px;
+}
+
+.checkBoxFilter {
+    background-color: white;
+    box-shadow: 2px 2px 10px 2px rgb(89, 119, 136);
+    padding-right: 10px;
+    border-radius: 5px;
+
+
+
 }
