@@ -21,11 +21,3 @@
     border-radius: 5px;
     height: 30px;
 }
-
-.checkBoxFilter {
-    background-color: white;
-    box-shadow: 2px 2px 10px 2px rgb(89, 119, 136);
-    padding-right: 10px;
-    border-radius: 5px;
-    align-content: center;
-}

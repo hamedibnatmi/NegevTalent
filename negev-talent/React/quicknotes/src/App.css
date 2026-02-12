@@ -3,6 +3,7 @@
 @import "./styles/noteModal.css";
 @import "./styles/note.css";
 @import "./styles/noteSearch.css";
+@import "./styles/noteFilter.css";
 
 #root {
   max-width: 1280px;
