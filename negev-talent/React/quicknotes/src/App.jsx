@@ -4,6 +4,7 @@ import InputForm from './components/inputForm.jsx'
 import Notes from './components/notes.jsx'
 import NoteModal from './components/noteModal.jsx'
 import NoteSearch from './components/noteSearch.jsx'
+import NoteFilter from './components/noteFilter.jsx'
 
 function App() {
   const [notesList, setNotesList] = useState(getNotes())
@@ -108,7 +109,10 @@ function App() {
   return (
     <>
       <InputForm addNote={addNote} categories={categories} />
-      <NoteSearch search={search} categories={categories} />
+      <div className="search">
+        <NoteSearch search={search} />
+        <NoteFilter search={search} categories={categories} />
+      </div>
       <Notes searchedListNotes={searchedListNotes} deletNote={deletNote} openNote={openNote} />
       {isNoteModalOpen && <NoteModal updateNote={updateNote} deletNote={deletNote} closeModal={closeOpenNoteModal} note={modalNote} categories={categories} />}
     </>
