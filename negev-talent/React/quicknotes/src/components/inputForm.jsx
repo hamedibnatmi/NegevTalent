@@ -3,7 +3,7 @@ import React, { useState } from "react"
 export default function InputForm({ context, addNote, updateNote, note, categories }) {
     const [inputValue, setInputValue] = useState(note?.note || "");
     const [title, setTitle] = useState(note?.title || "");
-    const [selectedCategory, setCelectedCategory] = useState(categories[0].category)
+    const [selectedCategory, setCelectedCategory] = useState(note ? note.category : categories[0].category)
     const textAreaRef = React.useRef(null);
 
     const addNoteHandler = () => {
@@ -27,6 +27,10 @@ export default function InputForm({ context, addNote, updateNote, note, categori
     }
 
     const selectCategory = () => {
+        if (note) {
+            let orderedCategories = [...categories.filter(item => item.category == note.category), ...categories.filter(item => item.category != note.category)]
+            return orderedCategories.map(item => <option key={item.category}>{item.category}</option>)
+        }
         return categories.map(item => <option key={item.category}>{item.category}</option>)
     }
     return (
