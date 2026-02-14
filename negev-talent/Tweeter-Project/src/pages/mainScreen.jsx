@@ -6,9 +6,10 @@ const MainScreen = () => {
 
     return (
         <>
-            main screen
-            <CreatTweet />
-            <TweetList />
+            <div className="main-screen">
+                <CreatTweet />
+                <TweetList />
+            </div>
         </>
     )
 }
