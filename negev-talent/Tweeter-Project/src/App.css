@@ -1,6 +1,7 @@
 @import "./components/Styles/createTweet.css";
 @import "./components/Styles/tweetsList.css";
 @import "./pages/styles/mainScreen.css";
+@import "./components/Styles/tweet.css";
 
 #root {
   max-width: 1280px;

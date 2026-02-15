@@ -1,7 +1,8 @@
 .create-tweet-form {
     border: 1px solid #FFFFFF;
-    width: 50vw;
-    height: 20vh;
+    width: 50%;
+    height: 150px;
+    min-height: 150px;
     margin-top: 0px;
 }
 

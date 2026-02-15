@@ -1,0 +1,17 @@
+.tweet {
+    background-color: #363a3f;
+    width: 50%;
+    height: 120px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.tweet-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tweet-text {
+    text-align: left;
+}

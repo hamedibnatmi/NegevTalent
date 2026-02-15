@@ -11,7 +11,9 @@ const TweetList = () => {
 
     return (
         <>
-            {tweetsListRender()}
+            <div className="list">
+                {tweetsListRender()}
+            </div>
         </>
     )
 }
