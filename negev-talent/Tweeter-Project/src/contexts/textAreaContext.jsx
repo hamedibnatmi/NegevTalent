@@ -1,16 +1,33 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useReducer } from "react";
 
 const TextAreaContext = createContext()
+function reducer(state, action) {
+    switch (action.type) {
+        case "Set-TextArea-Input":
+            return {
+                ...state,
+                textAreaInput: action.payload,
+            }
+        case "Set-Tweets-List":
+            return {
+                ...state,
+                tweetsList: [action.payload, ...state.tweetsList],
+            }
+
+        default:
+            return state;
+    }
+}
 
 export const TextAreaProvider = ({ children }) => {
-    const [textAreaInput, setTextAreaInput] = useState("");
-    const [tweetsList, setTweetsList] = useState([])
+    const [state, dispatch] = useReducer(reducer, {
+        textAreaInput: "",
+        tweetsList: []
+    })
 
     let value = {
-        textAreaInput,
-        setTextAreaInput,
-        tweetsList,
-        setTweetsList
+        state,
+        dispatch
     }
     return (
         <TextAreaContext.Provider value={value}>
