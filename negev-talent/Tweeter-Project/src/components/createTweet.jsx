@@ -1,4 +1,5 @@
 import { useTextAreaContext } from "../contexts/textAreaContext";
+import { Button } from "@mantine/core";
 
 const CreatTweet = () => {
     const { state, dispatch } = useTextAreaContext();
@@ -23,7 +24,7 @@ const CreatTweet = () => {
                         type: "Set-TextArea-Input",
                         payload: e.target.value,
                     })} />
-                    <input className="tweet-btn" type="submit" value={"Tweet"} />
+                    <Button type="submit" mb="xs" mr="xs" >Tweet</Button>
                 </form>
             </div>
         </>

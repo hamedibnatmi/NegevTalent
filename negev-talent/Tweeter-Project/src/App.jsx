@@ -1,14 +1,17 @@
-import { useState } from 'react'
 import './App.css'
 import MainScreen from './pages/mainScreen'
 import { TextAreaProvider } from './contexts/textAreaContext'
+import '@mantine/core/styles.css'
+import { MantineProvider } from '@mantine/core'
 
 function App() {
   return (
     <>
-      <TextAreaProvider>
-        <MainScreen />
-      </TextAreaProvider>
+      <MantineProvider defaultColorScheme="dark">
+        <TextAreaProvider>
+          <MainScreen />
+        </TextAreaProvider>
+      </MantineProvider>
     </>
   )
 }
