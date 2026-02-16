@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTextAreaContext } from "../contexts/textAreaContext";
 import { Button } from "@mantine/core";
-import { useEffect } from "react";
 
 const CreatTweet = () => {
     const [isDisabled, setIsDisabled] = useState(false)
@@ -20,7 +19,6 @@ const CreatTweet = () => {
     }
 
     useEffect(() => {
-        console.log("myState: ", state)
         localStorage.setItem("tweetsList", JSON.stringify(state))
     }, [state])
 
@@ -40,7 +38,11 @@ const CreatTweet = () => {
             <div className="create-tweet-form">
                 <form action="" onSubmit={submitHandle}>
                     <textarea className="input" type="text" placeholder="What you have in mind..." value={state.textAreaInput} onChange={onChangeextAreaHandle} />
-                    <Button type="submit" mb="xs" mr="xs" disabled={isDisabled} >Tweet</Button>
+                    <div className={`form-footer ${isDisabled ? "two-elements" : ""}`}>
+                        {isDisabled && <div><span>The tweet can't containe mre than 140 chars.</span></div>}
+                        <Button type="submit" disabled={isDisabled} >Tweet</Button>
+                    </div>
+
                 </form>
             </div>
         </>
