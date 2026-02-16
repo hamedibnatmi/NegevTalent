@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { useTextAreaContext } from "../contexts/textAreaContext";
 import { Button } from "@mantine/core";
 
 const CreatTweet = () => {
+    const [isDisabled, setIsDisabled] = useState(false)
     const { state, dispatch } = useTextAreaContext();
     const submitHandle = (e) => {
         e.preventDefault();
@@ -14,17 +16,25 @@ const CreatTweet = () => {
             type: "Set-TextArea-Input",
             payload: "",
         })
-
     }
+
+    const onChangeextAreaHandle = (e) => {
+        e.target.value.length > 140 ?
+            setIsDisabled(true)
+            : setIsDisabled(false)
+        dispatch({
+            type: "Set-TextArea-Input",
+            payload: e.target.value,
+        })
+    }
+
+
     return (
         <>
             <div className="create-tweet-form">
                 <form action="" onSubmit={submitHandle}>
-                    <textarea className="input" type="text" placeholder="What you have in mind..." value={state.textAreaInput} onChange={e => dispatch({
-                        type: "Set-TextArea-Input",
-                        payload: e.target.value,
-                    })} />
-                    <Button type="submit" mb="xs" mr="xs" >Tweet</Button>
+                    <textarea className="input" type="text" placeholder="What you have in mind..." value={state.textAreaInput} onChange={onChangeextAreaHandle} />
+                    <Button type="submit" mb="xs" mr="xs" disabled={isDisabled} >Tweet</Button>
                 </form>
             </div>
         </>
