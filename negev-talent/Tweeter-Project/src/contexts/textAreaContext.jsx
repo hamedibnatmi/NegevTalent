@@ -23,7 +23,12 @@ export const TextAreaProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, {
         textAreaInput: "",
         tweetsList: []
-    })
+    },
+        (init) => {
+            const loaclTweetsList = localStorage.getItem("tweetsList");
+            return loaclTweetsList ? JSON.parse(loaclTweetsList) : init;
+        }
+    )
 
     let value = {
         state,

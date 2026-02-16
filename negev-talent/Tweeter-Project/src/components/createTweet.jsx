@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTextAreaContext } from "../contexts/textAreaContext";
 import { Button } from "@mantine/core";
+import { useEffect } from "react";
 
 const CreatTweet = () => {
     const [isDisabled, setIsDisabled] = useState(false)
@@ -10,13 +11,18 @@ const CreatTweet = () => {
         const time = new Date().toDateString();
         dispatch({
             type: "Set-Tweets-List",
-            payload: { id: crypto.randomUUID(), text: state.textAreaInput, time, user: "hard coded" }
+            payload: { id: crypto.randomUUID(), text: state.textAreaInput, time, user: "name" }
         })
         dispatch({
             type: "Set-TextArea-Input",
             payload: "",
         })
     }
+
+    useEffect(() => {
+        console.log("myState: ", state)
+        localStorage.setItem("tweetsList", JSON.stringify(state))
+    }, [state])
 
     const onChangeextAreaHandle = (e) => {
         e.target.value.length > 140 ?
