@@ -40,7 +40,7 @@ const CreatTweet = () => {
                     <textarea className="input" type="text" placeholder="What you have in mind..." value={textAreaInputState.textAreaInput} onChange={onChangeextAreaHandle} />
                     <div className={`form-footer ${isDisabled || tweetsListState.errors.postTweets ? "two-elements" : ""}`}>
                         {isDisabled && <div><span>The tweet can't containe more than 140 chars.</span></div>}
-                        {tweetsListState.errors.postTweets && <div><span>Failed to post the tweet</span></div>}
+                        {tweetsListState.errors.postTweets && <div><span>Failed to post the tweet!</span></div>}
                         <Button type="submit" loading={tweetsListState.loader} disabled={isDisabled} >Tweet</Button>
                     </div>
 
