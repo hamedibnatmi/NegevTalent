@@ -4,13 +4,13 @@ import { Button, Loader } from "@mantine/core";
 
 const CreatTweet = () => {
     const [isDisabled, setIsDisabled] = useState(false)
-    const { tweetsListState, dispatch, textAreaInputState, textAreaInputDispatch, postInputState, postInputDispatch } = useTweetsContextContext();
+    const { tweetsListState, dispatch, textAreaInputState, textAreaInputDispatch, postInputState, postInputDispatch, userNameState } = useTweetsContextContext();
     const submitHandle = (e) => {
         e.preventDefault();
         const date = new Date().toDateString();
         postInputDispatch({
             type: "Set-post-Input",
-            payload: { content: textAreaInputState.textAreaInput, date, id: crypto.randomUUID(), userName: "joe" }
+            payload: { content: textAreaInputState.textAreaInput, date, id: crypto.randomUUID(), userName: userNameState.userName }
         })
         textAreaInputDispatch({
             type: "Set-TextArea-Input",

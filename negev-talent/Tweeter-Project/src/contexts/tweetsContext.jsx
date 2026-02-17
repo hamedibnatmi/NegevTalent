@@ -8,6 +8,11 @@ function reducer(state, action) {
                 ...state,
                 textAreaInput: action.payload,
             }
+        case "Set-UserName-Input":
+            return {
+                ...state,
+                userName: action.payload,
+            }
         case "Set-post-Input":
             return {
                 ...state,
@@ -53,13 +58,20 @@ export const TweetsContextProvider = ({ children }) => {
         searchInput: "",
     })
 
+    const [userNameState, userNameDispatch] = useReducer(reducer, {
+        userName: "Hamed",
+    })
+
     let value = {
         tweetsListState,
         tweetsListDispatch,
         textAreaInputState,
         textAreaInputDispatch,
         postInputState,
-        postInputDispatch
+        postInputDispatch,
+        userNameState,
+        userNameDispatch
+
     }
     return (
         <TweetsContext.Provider value={value}>
