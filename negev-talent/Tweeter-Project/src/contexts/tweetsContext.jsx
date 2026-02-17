@@ -13,7 +13,7 @@ function reducer(state, action) {
             console.log("w2", action)
             return {
                 ...state,
-                searchInput: { ...action.payload },
+                searchInput: action.payload,
             }
         case "Set-Tweets-List":
             console.log("con: ", action.payload)
@@ -41,7 +41,7 @@ export const TweetsContextProvider = ({ children }) => {
     })
 
     const [postInputState, postInputDispatch] = useReducer(reducer, {
-        searchInput: {},
+        searchInput: "",
     })
 
     let value = {

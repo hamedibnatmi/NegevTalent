@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useTweetsContextContext } from "../contexts/tweetsContext";
 import Tweet from "./tweet";
-import { getTweets } from "../models/tweetsAPI";
+import { getTweets, postTweet } from "../models/tweetsAPI";
 
 
 const TweetList = () => {
@@ -17,6 +17,24 @@ const TweetList = () => {
 
 
         })();
+
+    }, [])
+
+    useEffect(() => {
+        console.log("post1", postInputState)
+        if (postInputState.searchInput) {
+            (async () => {
+                await postTweet(postInputState.searchInput)
+                const tweets = await (await getTweets()).json()
+
+                tweetsListDispatch({
+                    type: "Set-Tweets-List",
+                    payload: tweets || []
+                })
+
+
+            })();
+        }
 
     }, [postInputState])
 
