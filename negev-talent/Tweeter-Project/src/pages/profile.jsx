@@ -5,11 +5,6 @@ const Profile = () => {
     const { userNameState, userNameDispatch } = useTweetsContextContext();
     const [userNameInput, setUserNameInput] = useState(userNameState.userName)
 
-    const handleInput = (e) => {
-
-
-        setUserNameInput(e.target.value)
-    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,7 +20,7 @@ const Profile = () => {
             </div>
             <form action="" onSubmit={handleSubmit}>
                 <label>User Name</label>
-                <Input type="text" value={userNameInput} onChange={handleInput} />
+                <Input type="text" value={userNameInput} onChange={(e) => setUserNameInput(e.target.value)} />
                 <Button type="submit">Save</Button>
             </form>
         </div>
