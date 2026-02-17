@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useTweetsContextContext } from "../contexts/tweetsContext";
-import { Button } from "@mantine/core";
+import { Button, Loader } from "@mantine/core";
 
 const CreatTweet = () => {
     const [isDisabled, setIsDisabled] = useState(false)
-    const { state, dispatch, textAreaInputState, textAreaInputDispatch, postInputState, postInputDispatch } = useTweetsContextContext();
+    const { tweetsListState, dispatch, textAreaInputState, textAreaInputDispatch, postInputState, postInputDispatch } = useTweetsContextContext();
     const submitHandle = (e) => {
         e.preventDefault();
         const date = new Date().toDateString();
@@ -40,7 +40,7 @@ const CreatTweet = () => {
                     <textarea className="input" type="text" placeholder="What you have in mind..." value={textAreaInputState.textAreaInput} onChange={onChangeextAreaHandle} />
                     <div className={`form-footer ${isDisabled ? "two-elements" : ""}`}>
                         {isDisabled && <div><span>The tweet can't containe more than 140 chars.</span></div>}
-                        <Button type="submit" disabled={isDisabled} >Tweet</Button>
+                        <Button type="submit" loading={tweetsListState.loader} disabled={isDisabled} >Tweet</Button>
                     </div>
 
                 </form>

@@ -4,22 +4,24 @@ const TweetsContext = createContext()
 function reducer(state, action) {
     switch (action.type) {
         case "Set-TextArea-Input":
-            console.log("w1", action)
             return {
                 ...state,
                 textAreaInput: action.payload,
             }
         case "Set-post-Input":
-            console.log("w2", action)
             return {
                 ...state,
                 searchInput: action.payload,
             }
         case "Set-Tweets-List":
-            console.log("con: ", action.payload)
             return {
                 ...state,
                 tweetsList: [...action.payload],
+            }
+        case "Set-Tweets-Loader":
+            return {
+                ...state,
+                loader: action.payload
             }
 
         default:
@@ -29,7 +31,8 @@ function reducer(state, action) {
 
 export const TweetsContextProvider = ({ children }) => {
     const [tweetsListState, tweetsListDispatch] = useReducer(reducer, {
-        tweetsList: []
+        tweetsList: [],
+        loader: false
     },
         // (init) => {
         //     const loaclTweetsList = localStorage.getItem("tweetsList");
