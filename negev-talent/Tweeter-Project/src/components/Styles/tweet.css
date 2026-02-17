@@ -1,0 +1,38 @@
+.tweet {
+    background-color: #363a3f;
+    width: 50%;
+    height: fit-content;
+    min-height: 120px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.tweet-header {
+    display: flex;
+    justify-content: space-between;
+    color: gray;
+}
+
+.tweet-text {
+    text-align: left;
+    word-wrap: break-word;
+}
+
+.form-footer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.form-footer.two-elements {
+    justify-content: space-between;
+}
+
+.form-footer div {
+    align-content: center;
+    background-color: rgb(156, 85, 85);
+    padding: 0 5px;
+    border-radius: 3px;
+}
