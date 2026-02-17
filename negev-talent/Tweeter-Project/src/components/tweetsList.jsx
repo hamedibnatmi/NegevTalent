@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useTweetsContextContext } from "../contexts/tweetsContext";
 import Tweet from "./tweet";
 import { getTweets, postTweet } from "../models/tweetsAPI";
-import { Loader } from "@mantine/core";
+import { Loader, Text } from "@mantine/core";
 
 
 const TweetList = () => {
@@ -10,11 +10,28 @@ const TweetList = () => {
 
     useEffect(() => {
         (async () => {
-            const tweets = await (await getTweets()).json()
-            tweetsListDispatch({
-                type: "Set-Tweets-List",
-                payload: tweets || []
-            })
+            try {
+                tweetsListDispatch({
+                    type: "Set-Tweets-Loader",
+                    payload: true
+                })
+                const tweets = await (await getTweets()).json()
+                tweetsListDispatch({
+                    type: "Set-Tweets-List",
+                    payload: tweets || []
+                })
+            } catch (error) {
+                tweetsListDispatch({
+                    type: "Set-Tweets-Errors",
+                    payload: { getTweets: true }
+                })
+            } finally {
+                tweetsListDispatch({
+                    type: "Set-Tweets-Loader",
+                    payload: false
+                })
+            }
+
 
 
         })();
@@ -34,24 +51,58 @@ const TweetList = () => {
 
                 } catch (error) {
                     console.error("Failed to post the tweet")
+                    tweetsListDispatch({
+                        type: "Set-Tweets-Errors",
+                        payload: { postTweets: true }
+                    })
+                } finally {
+                    tweetsListDispatch({
+                        type: "Set-Tweets-Loader",
+                        payload: false
+                    })
+                    setTimeout(() => {
+                        tweetsListDispatch({
+                            type: "Set-Tweets-Errors",
+                            payload: { postTweets: false }
+                        })
+                    }, 10000)
+                }
+
+                try {
+                    tweetsListDispatch({
+                        type: "Set-Tweets-Loader",
+                        payload: true
+                    })
+                    console.error("Failed to post the tweet")
+                    tweetsListDispatch({
+                        type: "Set-Tweets-Errors",
+                        payload: { getTweets: false }
+                    })
+                    const tweets = await (await getTweets()).json()
+                    tweetsListDispatch({
+                        type: "Set-Tweets-List",
+                        payload: tweets || []
+                    })
+                } catch (error) {
+                    console.error("Failed to post the tweet")
+                    tweetsListDispatch({
+                        type: "Set-Tweets-Errors",
+                        payload: { getTweets: true }
+                    })
                 } finally {
                     tweetsListDispatch({
                         type: "Set-Tweets-Loader",
                         payload: false
                     })
                 }
-                const tweets = await (await getTweets()).json()
 
-                tweetsListDispatch({
-                    type: "Set-Tweets-List",
-                    payload: tweets || []
-                })
             })();
         }
     }, [postInputState])
 
     const tweetsListRender = () => {
-        return tweetsListState.loader && <Loader mt={"30%"}></Loader> || tweetsListState.tweetsList.map(tweet => <Tweet key={tweet.id} tweet={tweet} />)
+        console.log("e1: ", tweetsListState)
+        return tweetsListState.loader && <Loader mt={"30%"}></Loader> || tweetsListState.errors.getTweets && <Text c="red" mt={"30%"} >Failed to get list</Text> || tweetsListState.tweetsList.map(tweet => <Tweet key={tweet.id} tweet={tweet} />)
     }
 
     return (

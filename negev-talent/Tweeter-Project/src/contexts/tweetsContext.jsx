@@ -23,6 +23,11 @@ function reducer(state, action) {
                 ...state,
                 loader: action.payload
             }
+        case "Set-Tweets-Errors":
+            return {
+                ...state,
+                errors: { ...state.errors, ...action.payload }
+            }
 
         default:
             return state;
@@ -32,7 +37,8 @@ function reducer(state, action) {
 export const TweetsContextProvider = ({ children }) => {
     const [tweetsListState, tweetsListDispatch] = useReducer(reducer, {
         tweetsList: [],
-        loader: false
+        loader: false,
+        errors: {}
     },
         // (init) => {
         //     const loaclTweetsList = localStorage.getItem("tweetsList");
