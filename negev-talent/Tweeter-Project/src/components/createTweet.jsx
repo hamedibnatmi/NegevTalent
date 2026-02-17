@@ -7,7 +7,7 @@ const CreatTweet = () => {
     const { tweetsListState, dispatch, textAreaInputState, textAreaInputDispatch, postInputState, postInputDispatch, userNameState } = useTweetsContextContext();
     const submitHandle = (e) => {
         e.preventDefault();
-        const date = new Date().toDateString();
+        const date = new Date().toISOString();
         postInputDispatch({
             type: "Set-post-Input",
             payload: { content: textAreaInputState.textAreaInput, date, id: crypto.randomUUID(), userName: userNameState.userName }
