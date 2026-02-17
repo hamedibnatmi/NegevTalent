@@ -3,6 +3,7 @@
 @import "./pages/styles/mainScreen.css";
 @import "./components/Styles/tweet.css";
 @import "./pages/styles/profile.css";
+@import "./components/Styles/navBar.css";
 
 #root {
   max-width: 1280px;
