@@ -4,11 +4,11 @@ const Tweet = ({ tweet }) => {
         <>
             <div className="tweet">
                 <div className="tweet-header">
-                    <span className="name">{tweet.user}</span>
-                    <span className="date">{tweet.time}</span>
+                    <span className="name">{tweet.userName}</span>
+                    <span className="date">{tweet.date}</span>
                 </div>
                 <p className="tweet-text">
-                    {tweet.text}
+                    {tweet.content}
                 </p>
 
             </div>

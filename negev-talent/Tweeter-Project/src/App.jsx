@@ -1,6 +1,6 @@
 import './App.css'
 import MainScreen from './pages/mainScreen'
-import { TextAreaProvider } from './contexts/textAreaContext'
+import { TweetsContextProvider } from './contexts/tweetsContext'
 import '@mantine/core/styles.css'
 import { MantineProvider } from '@mantine/core'
 
@@ -8,9 +8,9 @@ function App() {
   return (
     <>
       <MantineProvider defaultColorScheme="dark">
-        <TextAreaProvider>
+        <TweetsContextProvider>
           <MainScreen />
-        </TextAreaProvider>
+        </TweetsContextProvider>
       </MantineProvider>
     </>
   )
