@@ -1,2 +1,3 @@
-# NegevTalent
-Negev Talent FS-AI Course
+JAVAScript 
+CSS
+HTML
