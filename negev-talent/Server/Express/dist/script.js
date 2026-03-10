@@ -18,6 +18,6 @@ buyBtn.addEventListener("click", async () => {
     const item = buyInput.value
     const res = await fetch(`/buy/${item}`)
     const data = await res.json()
-    buyInv.innerHTML = `${item} in inventory: ${data.inventory}`
+    buyInv.innerHTML = `Congratulations, you've just bought ${item} for ${data.price}. There are ${data.inventory} left now in the store.`
 
 })

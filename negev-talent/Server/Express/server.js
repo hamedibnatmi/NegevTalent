@@ -35,12 +35,26 @@ app.get("/buy/:name", (req, res) => {
     if (item) {
         if (item.inventory > 0) {
             item.inventory--
-            res.send({ success: true, inventory: item.inventory })
+            res.send({ success: true, price: item.price, inventory: item.inventory })
         } else {
             res.send({ success: false, price: null })
         }
     } else {
         res.send({ success: false, price: null })
+    }
+})
+
+app.get("/sale/", (req, res) => {
+    const { admin } = req.query
+    if (admin === "true") {
+        const adminStore = store.map(item => {
+            if (item.name == "chair" || item.name == "picture frame")
+                return { ...item, price: item.price * 0.5 }
+            return item
+        })
+        res.send(adminStore)
+    } else {
+        res.send(store)
     }
 })
 

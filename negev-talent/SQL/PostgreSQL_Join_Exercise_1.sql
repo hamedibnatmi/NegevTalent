@@ -1,0 +1,181 @@
+-- CREATE TABLE ethnicity (
+--     id INTEGER PRIMARY KEY,
+--     name VARCHAR(20)
+-- );
+
+-- CREATE TABLE gender (
+--     id INTEGER PRIMARY KEY,
+--     name VARCHAR(20)
+-- );
+
+-- CREATE TABLE symptoms (
+--     family INTEGER PRIMARY KEY,
+--     fever BOOLEAN,
+--     blue_whelts BOOLEAN,
+--     low_bp BOOLEAN
+-- );
+
+-- CREATE TABLE disease (
+--     name VARCHAR(20) PRIMARY KEY,
+--     survival_rate FLOAT
+-- );
+
+-- CREATE TABLE patient (
+--     id SERIAL PRIMARY KEY,
+--     ethnicity INTEGER,
+--     gender INTEGER,
+--     symptoms_family INTEGER,
+--     disease VARCHAR(20),
+
+--     FOREIGN KEY (ethnicity) REFERENCES ethnicity(id),
+--     FOREIGN KEY (gender) REFERENCES gender(id),
+--     FOREIGN KEY (symptoms_family) REFERENCES symptoms(family),
+--     FOREIGN KEY (disease) REFERENCES disease(name)
+-- );
+
+-- Simple tables
+-- INSERT INTO ethnicity VALUES(0, 'asian');
+-- INSERT INTO ethnicity VALUES(1, 'black');
+-- INSERT INTO ethnicity VALUES(2, 'hispanic');
+-- INSERT INTO ethnicity VALUES(3, 'white');
+
+-- INSERT INTO gender VALUES(0, 'female');
+-- INSERT INTO gender VALUES(1, 'male');
+
+-- INSERT INTO symptoms VALUES (0, TRUE,  TRUE,  TRUE);
+-- INSERT INTO symptoms VALUES (1, FALSE, TRUE,  TRUE);
+-- INSERT INTO symptoms VALUES (2, FALSE, FALSE, TRUE);
+-- INSERT INTO symptoms VALUES (3, FALSE, FALSE, FALSE);
+-- INSERT INTO symptoms VALUES (4, TRUE,  FALSE, TRUE);
+-- INSERT INTO symptoms VALUES (5, TRUE,  FALSE, FALSE);
+-- INSERT INTO symptoms VALUES (6, TRUE,  TRUE,  FALSE);
+-- INSERT INTO symptoms VALUES (7, FALSE, TRUE,  FALSE);
+
+-- INSERT INTO disease VALUES('cabbage disease', 0.2);
+-- INSERT INTO disease VALUES('lettuce disease', 0.35);
+
+-- Patient table
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (0, 1, 7, 'lettuce disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (1, 0, 3, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (0, 0, 7, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 1, 0, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 1, 3, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (0, 1, 7, 'lettuce disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 0, 0, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (1, 0, 4, 'cabbage disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (1, 1, 0, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (1, 0, 3, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 0, 0, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (0, 1, 7, 'lettuce disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (0, 1, 0, 'lettuce disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (0, 0, 7, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (0, 1, 7, 'lettuce disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 0, 0, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (0, 0, 3, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (1, 0, 7, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (0, 0, 7, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 1, 0, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (1, 1, 4, 'cabbage disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 1, 2, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 1, 2, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (0, 1, 3, 'cabbage disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 0, 1, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 1, 1, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 1, 1, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 1, 0, 'lettuce disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (1, 0, 3, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 1, 0, 'cabbage disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (0, 1, 7, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 0, 5, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (0, 0, 7, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 1, 4, 'cabbage disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 1, 1, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 1, 2, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (1, 0, 2, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (0, 1, 1, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 0, 3, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (1, 1, 4, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (1, 0, 0, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (1, 1, 0, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 1, 4, 'cabbage disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 0, 2, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 1, 4, 'cabbage disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 1, 6, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 1, 6, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 0, 7, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 0, 7, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (0, 1, 0, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 0, 0, 'cabbage disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (1, 0, 2, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 1, 5, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 1, 4, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 1, 1, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 0, 4, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 1, 4, 'cabbage disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (0, 1, 4, 'lettuce disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (1, 1, 0, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (1, 1, 7, 'lettuce disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (0, 0, 2, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 1, 3, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (0, 0, 0, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (1, 0, 2, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (0, 1, 4, 'cabbage disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 1, 2, 'cabbage disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 0, 4, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 0, 1, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (0, 1, 4, 'cabbage disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (0, 1, 3, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 1, 2, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (1, 0, 4, 'cabbage disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (0, 1, 2, 'cabbage disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (1, 1, 4, 'cabbage disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 1, 2, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 1, 4, 'cabbage disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 1, 5, 'cabbage disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 1, 4, 'cabbage disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 0, 3, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 1, 4, 'cabbage disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 1, 5, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 0, 7, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 1, 4, 'cabbage disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (1, 1, 3, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 1, 4, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (0, 1, 7, 'lettuce disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 0, 7, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 0, 5, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 1, 1, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 1, 3, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (1, 0, 6, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 0, 5, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (1, 0, 3, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 0, 7, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 1, 4, 'cabbage disease');
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 1, 4, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (0, 0, 6, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (0, 1, 3, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (3, 1, 2, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (2, 1, 5, NULL);
+-- INSERT INTO patient (ethnicity, gender, symptoms_family, disease) VALUES (1, 1, 6, NULL);
+
+-- select * from ethnicity;
+-- select 
+-- patient.id,
+-- disease.survival_rate 
+-- from patient 
+-- full join disease 
+-- on patient.disease = disease.name
+-- where patient.disease is not null
+-- order by patient.id asc;
+
+-- select  patient.symptoms_family, count (patient.id) as "count(symptoms_family)" from patient
+-- where disease = 'cabbage disease'
+-- group by symptoms_family
+-- order by symptoms_family asc;
+
+-- select  ethnicity.name, count(ethnicity.name)
+-- from patient 
+-- join ethnicity
+-- on patient.ethnicity = ethnicity.id
+-- where disease = 'lettuce disease'
+-- group by ethnicity.name;
+
